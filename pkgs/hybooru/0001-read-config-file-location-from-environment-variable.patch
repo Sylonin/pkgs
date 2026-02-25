@@ -1,7 +1,7 @@
 From f116653a8d4a70e038a2357354a831ba6598bdfe Mon Sep 17 00:00:00 2001
 From: Syl <syl@sperg.net>
 Date: Wed, 25 Feb 2026 17:35:11 -0500
-Subject: [PATCH] read config file location from environment variable
+Subject: [PATCH 1/2] read config file location from environment variable
 
 ---
  server/helpers/configs.ts | 2 +-

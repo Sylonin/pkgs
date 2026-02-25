@@ -1,0 +1,27 @@
+From 74d09fa9270bc27f8bbca0b2cb1ab487c1266c80 Mon Sep 17 00:00:00 2001
+From: Syl <syl@sperg.net>
+Date: Wed, 25 Feb 2026 18:30:27 -0500
+Subject: [PATCH 2/2] use ATTACH read-only
+
+---
+ server/helpers/dbImport/index.ts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/server/helpers/dbImport/index.ts b/server/helpers/dbImport/index.ts
+index 631f964..1cdf275 100644
+--- a/server/helpers/dbImport/index.ts
++++ b/server/helpers/dbImport/index.ts
+@@ -55,8 +55,8 @@ export async function rebuild() {
+     const resolveRelations = configs.tags.resolveRelations;
+     
+     const hydrus = new SqliteDatabase(path.resolve(dbPath, "client.db"), { readonly: true });
+-    await hydrus.exec(`ATTACH '${path.resolve(dbPath, "client.mappings.db")}' AS mappings`);
+-    await hydrus.exec(`ATTACH '${path.resolve(dbPath, "client.master.db")}' AS master`);
++    await hydrus.exec(`ATTACH 'file:${path.resolve(dbPath, "client.mappings.db")}?mode=ro' AS mappings`);
++    await hydrus.exec(`ATTACH 'file:${path.resolve(dbPath, "client.master.db")}?mode=ro' AS master`);
+     
+     const { version } = hydrus.prepare('SELECT version FROM version;').get();
+     if(version < MIN_HYDRUS_VER) throw new Error(`Unsupported Hydrus version(min: v${MIN_HYDRUS_VER}, current: v${version}), Update Hydrus to the newest version.`);
+-- 
+2.52.0
+
