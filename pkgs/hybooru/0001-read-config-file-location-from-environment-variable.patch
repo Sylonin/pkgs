@@ -1,0 +1,25 @@
+From f116653a8d4a70e038a2357354a831ba6598bdfe Mon Sep 17 00:00:00 2001
+From: Syl <syl@sperg.net>
+Date: Wed, 25 Feb 2026 17:35:11 -0500
+Subject: [PATCH] read config file location from environment variable
+
+---
+ server/helpers/configs.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/server/helpers/configs.ts b/server/helpers/configs.ts
+index 731cd6c..3a3b483 100644
+--- a/server/helpers/configs.ts
++++ b/server/helpers/configs.ts
+@@ -130,7 +130,7 @@ const movedOptions = ["pageSize", "cachePages", "cacheRecords", "filesPathOverri
+ 
+ try {
+   // noinspection UnnecessaryLocalVariableJS
+-  const configsJson: typeof import("../../configs.json") = JSON.parse(fs.readFileSync("./configs.json").toString("utf-8"));
++  const configsJson: typeof import("../../configs.json") = JSON.parse(fs.readFileSync(process.env.CONFIG_FILE || "./configs.json").toString("utf-8"));
+   configs = deepMerge(configs, configsJson);
+   
+   for(const movedOption of movedOptions) {
+-- 
+2.52.0
+
