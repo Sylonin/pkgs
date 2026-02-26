@@ -64,7 +64,7 @@ buildNpmPackage rec {
   '';
   patches = [
     ./0001-read-config-file-location-from-environment-variable.patch
-    ./0002-use-ATTACH-read-only.patch
+    # ./0002-use-ATTACH-read-only.patch
   ];
 
   # Don't run default install, we handle it manually
