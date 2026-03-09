@@ -9,7 +9,7 @@
   makeWrapper,
 }:
 
-buildNpmPackage rec {
+buildNpmPackage {
   pname = "hybooru";
   version = "1.13.0";
 
@@ -54,17 +54,20 @@ buildNpmPackage rec {
     makeWrapper ${nodejs_20}/bin/node $out/bin/hybooru \
       --add-flags "$out/lib/hybooru/server.js" \
       --set NODE_ENV production \
+      --set SQLITE_USE_URI 1 \
       --chdir "$out/lib/hybooru"
 
     runHook postInstall
   '';
   postBuild = ''
     # Rebuild native modules after the main build
+    npm update better-sqlite3
     npm rebuild better-sqlite3
   '';
   patches = [
     ./0001-read-config-file-location-from-environment-variable.patch
-    # ./0002-use-ATTACH-read-only.patch
+    ./0002-use-ATTACH-read-only.patch
+    ./0003-update-batter-sqlit3.patch
   ];
 
   # Don't run default install, we handle it manually

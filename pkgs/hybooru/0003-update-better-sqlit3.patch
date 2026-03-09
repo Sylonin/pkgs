@@ -1,0 +1,25 @@
+From 2863bfd8b27e9151b78e65cfd392bf72ed5648a0 Mon Sep 17 00:00:00 2001
+From: Syl <syl@sperg.net>
+Date: Mon, 9 Mar 2026 15:21:35 -0400
+Subject: [PATCH] update better-sqlit3
+
+---
+ package.json | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/package.json b/package.json
+index cf58aea..aca4bc5 100644
+--- a/package.json
++++ b/package.json
+@@ -25,7 +25,7 @@
+ 		"@octokit/core": "^4.1.0",
+ 		"@ruffle-rs/ruffle": "^0.1.0-nightly.2023.10.2",
+ 		"axios": "^0.21.1",
+-		"better-sqlite3": "^8.0.1",
++		"better-sqlite3": "^12.6.2",
+ 		"body-parser": "^1.19.0",
+ 		"chalk": "^4.1.0",
+ 		"compression": "^1.7.4",
+-- 
+2.53.0
+
