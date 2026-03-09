@@ -18,6 +18,7 @@
 
   example-package = pkgs.callPackage ./pkgs/example-package { };
   hybooru = pkgs.callPackage ./pkgs/hybooru { };
+  shlink = pkgs.callPackage ./pkgs/shlink { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
