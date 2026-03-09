@@ -25,7 +25,8 @@ buildNpmPackage {
 
   nodejs = nodejs_20;
 
-  npmDepsHash = "sha256-pYs64+AAlm2SobDTHXAtrrRbfOivF1DiQ5lKVhNXr+k=";
+  npmDepsHash = "sha256-0i2PlZ9kHs6BikdMahssT05zOGgtWfnChhzZx3PoK1k=";
+  # npmDepsHash = lib.fakeHash;
 
   npmBuildScript = "build:prod";
 
@@ -61,13 +62,12 @@ buildNpmPackage {
   '';
   postBuild = ''
     # Rebuild native modules after the main build
-    npm update better-sqlite3
     npm rebuild better-sqlite3
   '';
   patches = [
     ./0001-read-config-file-location-from-environment-variable.patch
     ./0002-use-ATTACH-read-only.patch
-    ./0003-update-batter-sqlit3.patch
+    ./0003-update-better-sqlit3.patch
   ];
 
   # Don't run default install, we handle it manually
