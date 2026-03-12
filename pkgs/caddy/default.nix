@@ -10,7 +10,6 @@ pkgs.caddy.withPlugins {
     "github.com/caddyserver/transform-encoder@v0.0.0-20260219205817-c7997996a425"
     "github.com/corazawaf/coraza-caddy/v2@v2.2.0"
     "github.com/cubic3d/caddy-quantity-limiter@v1.0.0"
-    "github.com/git001/caddyv2-upload@v0.20.0"
     "github.com/greenpau/caddy-security@v1.1.45"
     "github.com/mholt/caddy-hitcounter@v1.0.0"
     "github.com/mholt/caddy-l4@v0.1.0"
@@ -18,5 +17,5 @@ pkgs.caddy.withPlugins {
     "github.com/ueffel/caddy-basic-auth-filter@v1.0.1"
     "pkg.jsn.cam/caddy-defender@v0.10.0"
   ];
-  hash = "sha256-FQvqka1HeRTTRcbgun6LRMyTd8NgEQSb/MbfqpEgzjs=";
+  hash = "sha256-Txu5Y6C59p7buw4sJTvrMUMPzPZp829gzb/s8Wxw36Q=";
 }
