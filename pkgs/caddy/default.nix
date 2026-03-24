@@ -17,5 +17,5 @@ pkgs.caddy.withPlugins {
     "github.com/ueffel/caddy-basic-auth-filter@v1.0.1"
     "pkg.jsn.cam/caddy-defender@v0.10.0"
   ];
-  hash = "sha256-Txu5Y6C59p7buw4sJTvrMUMPzPZp829gzb/s8Wxw36Q=";
+  hash = "sha256-smkuDJTQs8vIUJ/5e3A4rEcEcF/jZyrInnQ/8YL1PXo=";
 }
