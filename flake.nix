@@ -11,7 +11,7 @@
     in
     {
       overlays.default = final: prev: {
-        nzpkg = self.packages.${prev.system};
+        nzpkg = self.packages.${prev.stdenv.hostPlatform.system};
       };
       nixosModules = {
         hybooru = import ./modules/hybooru.nix;
@@ -27,10 +27,7 @@
         }
       );
       packages = forAllSystems (
-        system:
-        nixpkgs.lib.filterAttrs (
-          _: v: nixpkgs.lib.isDerivation v
-        ) self.legacyPackages.${nixpkgs.stdenv.hostPlatform.system}
+        system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
       );
     };
 }
