@@ -30,7 +30,7 @@
         system:
         nixpkgs.lib.filterAttrs (
           _: v: nixpkgs.lib.isDerivation v
-        ) self.legacyPackages.${self.stdenv.hostPlatform.system}
+        ) self.legacyPackages.${nixpkgs.stdenv.hostPlatform.system}
       );
     };
 }
