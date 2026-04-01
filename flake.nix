@@ -11,7 +11,7 @@
     in
     {
       overlays.default = final: prev: {
-        nzpkg = self.packages.${prev.stdenv.hostPlatform.system};
+        zpkg = self.packages.${prev.stdenv.hostPlatform.system};
       };
       nixosModules = {
         hybooru = import ./modules/hybooru.nix;

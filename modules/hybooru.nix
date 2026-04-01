@@ -82,8 +82,8 @@ in
 
     package = lib.mkOption {
       type = lib.types.package;
-      default = pkgs.nzpkg.hybooru;
-      defaultText = lib.literalExpression "pkgs.nzpkg.hybooru";
+      default = pkgs.zpkg.hybooru;
+      defaultText = lib.literalExpression "pkgs.zpkg.hybooru";
       description = "The Hybooru package to use";
     };
 
