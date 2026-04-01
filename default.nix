@@ -20,6 +20,7 @@
   hybooru = pkgs.callPackage ./pkgs/hybooru { };
   shlink = pkgs.callPackage ./pkgs/shlink { };
   caddy = pkgs.callPackage ./pkgs/caddy { };
+  vivid = pkgs.callPackage ./pkgs/vivid { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
