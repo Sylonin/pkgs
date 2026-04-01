@@ -23,6 +23,27 @@
   vivid = pkgs.callPackage ./pkgs/vivid { };
   incremental-compress = pkgs.callPackage ./pkgs/incremental-compress { };
 
+  firefox = (
+    pkgs.firefox.override {
+      extraPrefs = ''
+        EOF
+        # FIXME: does not support libName != "firefox"
+        echo 'pref("general.config.sandbox_enabled", false);' >> "$out/lib/firefox/defaults/pref/autoconfig.js"
+        echo 'pref("widget.use-xdg-desktop-portal.file-picker", 1);' >> "$out/lib/firefox/defaults/pref/autoconfig.js"
+        echo 'pref("uc.tweak.extra-compact", true);' >> "$out/lib/firefox/defaults/pref/autoconfig.js"
+        echo 'pref("uc.tweak.no-window-controls", true);' >> "$out/lib/firefox/defaults/pref/autoconfig.js"
+        echo 'pref("uc.tweak.justatest", true);' >> "$out/lib/firefox/defaults/pref/autoconfig.js"
+        cat >> "$out/lib/firefox/mozilla.cfg" << EOF
+      '';
+      extraPrefsFiles = [
+        (builtins.fetchurl {
+          url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/config.js";
+          sha256 = "1mx679fbc4d9x4bnqajqx5a95y1lfasvf90pbqkh9sm3ch945p40";
+        })
+      ];
+    }
+  );
+
   z-en = pkgs.writeShellScriptBin "en" ''
     ALTERNATE_EDITOR=emacs exec emacsclient -c "$@"
   '';
