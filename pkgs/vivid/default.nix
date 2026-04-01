@@ -6,13 +6,13 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "vivid";
-  version = "0.10.1";
+  version = "2772c9dab8c0f214d3e09b08fe6291ec89086359";
 
   src = fetchFromGitHub {
     owner = "sharkdp";
     repo = pname;
-    rev = "3dddb073f28156b3d24e6d8b73533e4c8f1deed2";
-    hash = "sha256-PD2neNSCXKxjR+plOeOFYxg31gzcK6HRpdn1aUwhctM=";
+    rev = version;
+    hash = "sha256-963rJz0ZsWnKQx8tO1Y65RHAW/oZnF4A5XKneP0PyBM=";
   };
 
   cargoHash = "sha256-oP5/G/PSkwn4JruLQOGtM8M2uPt4Q88bU3kNmXUK4JE=";
@@ -24,7 +24,7 @@ rustPlatform.buildRustPackage rec {
       asl20 # or
       mit
     ];
-    maintainers = [ maintainers.dtzWill ];
+    # maintainers = [ maintainers.dtzWill ];
     platforms = platforms.unix;
     mainProgram = "vivid";
   };
