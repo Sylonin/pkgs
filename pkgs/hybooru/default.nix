@@ -11,13 +11,13 @@
 
 buildNpmPackage {
   pname = "hybooru";
-  version = "1.13.0";
+  version = "1.14.0";
 
   src = fetchFromGitHub {
     owner = "funmaker";
     repo = "Hybooru";
     rev = "master"; # Or pin to a specific commit hash
-    hash = "sha256-kifuwkcwrBPkqfTEgIuN94v+VPrTOitKvD5PfnB2TKw=";
+    hash = "sha256-/EKYMaNocmpqQxoJYjT9nGMGBgb2byK97T5lbMI5XVI=";
   };
 
   # Calculate with: nix-prefetch-npm-deps package-lock.json
